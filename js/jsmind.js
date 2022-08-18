@@ -35,7 +35,7 @@
     var $g = function (id) { return $d.getElementById(id); };
     var $c = function (tag) { return $d.createElement(tag); };
     var $t = function (n, t) { if (n.hasChildNodes()) { n.firstChild.nodeValue = t; } else { n.appendChild($d.createTextNode(t)); } };
-
+    
     var $h = function (n, t) {
         if (t instanceof HTMLElement) {
             n.innerHTML = '';

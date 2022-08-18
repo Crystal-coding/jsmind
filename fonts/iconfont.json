@@ -1,0 +1,93 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "82754",
+      "name": "删除2",
+      "font_class": "shanchu2",
+      "unicode": "f012a",
+      "unicode_decimal": 983338
+    },
+    {
+      "icon_id": "785013",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "1447803",
+      "name": "成绩",
+      "font_class": "chengji",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "1502787",
+      "name": "logout",
+      "font_class": "logout",
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    },
+    {
+      "icon_id": "2552778",
+      "name": "测试",
+      "font_class": "ceshi",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "2559431",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e6b3",
+      "unicode_decimal": 59059
+    },
+    {
+      "icon_id": "7542789",
+      "name": "24gl-percent",
+      "font_class": "24gl-percent",
+      "unicode": "e88f",
+      "unicode_decimal": 59535
+    },
+    {
+      "icon_id": "13040739",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "15562246",
+      "name": "成绩统计",
+      "font_class": "chengjitongji",
+      "unicode": "e783",
+      "unicode_decimal": 59267
+    },
+    {
+      "icon_id": "21053833",
+      "name": "用户",
+      "font_class": "yonghu1",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "22320180",
+      "name": "题目-04",
+      "font_class": "timu-04",
+      "unicode": "e591",
+      "unicode_decimal": 58769
+    },
+    {
+      "icon_id": "30309287",
+      "name": "小猫咪",
+      "font_class": "xiaomaomi",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    }
+  ]
+}

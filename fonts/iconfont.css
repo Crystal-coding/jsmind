@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1660829321184') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shanchu2:before {
+  content: "\f012a";
+}
+
+.icon-caidan:before {
+  content: "\e648";
+}
+
+.icon-chengji:before {
+  content: "\e633";
+}
+
+.icon-logout:before {
+  content: "\e6f7";
+}
+
+.icon-ceshi:before {
+  content: "\e6ac";
+}
+
+.icon-yonghu:before {
+  content: "\e6b3";
+}
+
+.icon-24gl-percent:before {
+  content: "\e88f";
+}
+
+.icon-shouye:before {
+  content: "\e606";
+}
+
+.icon-chengjitongji:before {
+  content: "\e783";
+}
+
+.icon-yonghu1:before {
+  content: "\e68a";
+}
+
+.icon-timu-04:before {
+  content: "\e591";
+}
+
+.icon-xiaomaomi:before {
+  content: "\e710";
+}
+

@@ -1,72 +1,247 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>jsMind</title>
-        <link type="text/css" rel="stylesheet" href="../style/jsmind.css" />
-        <style type="text/css">
-            #jsmind_container {
-                width: 800px;
-                height: 500px;
-                border: solid 1px #ccc;
-                /*background:#f4f4f4;*/
-                background: #f4f4f4;
-            }
-        </style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsMind</title>
+    <link type="text/css" rel="stylesheet" href="../style/jsmind.css" />
+    <style type="text/css">
+        ul {
+            list-style-type: none;
+        }
+
+        input {
+            width: 130px;
+            height: 24px;
+            color: #888;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            padding-left: 5px;
+            margin-bottom: 20px;
+        }
+
+        #jsmind_container {
+            position: relative;
+            width: 1000px;
+            height: 500px;
+            border: solid 1px #ccc;
+            background: #f4f4f4;
+        }
+
+        .mask {
+            display: none;
+            z-index: 998;
+            position: absolute;
+            width: 300px;
+            min-height: 200px;
+            background-color: rgba(191, 229, 233, 0.8);
+            padding-top: 20px;
+            border-radius: 4px;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            color:#666;
+            font-size: 14px;
+        }
+
+        li span{
+            width: 70px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .add {
+            width: 20px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+            vertical-align: middle;
+            cursor: pointer;
+            transform: translateY(-10px);
+        }
+
+        .close{
+            z-index: 999;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 12px;
+            color: #fff;
+            border-radius: 50%;
+            background-color: rgb(222, 104, 104);
+        }
+
+        .close:hover{
+            background-color: rgb(212, 61, 61);
+        }
+    </style>
     </head>
-    <body>
-        <div id="jsmind_container"></div>
-        <script type="text/javascript" src="../js/jsmind.js"></script>
-        <script type="text/javascript" src="../js/jsmind.draggable.js"></script>
-        <script type="text/javascript">
-            function load_jsmind() {
-                var mind = {
-                    meta: {
-                        name: 'demo',
-                        author: 'hizzgdev@163.com',
-                        version: '0.2',
+
+<body>
+    <div id="jsmind_container">
+        <ul class="mask"></ul>
+    </div>
+    
+    <script type="text/javascript" src="../js/jsmind.js"></script>
+    <script type="text/javascript" src="../js/jsmind.draggable.js"></script>
+    <script type="text/javascript">
+        function load_jsmind() {
+            var mind = {
+                meta: {
+                    name: 'demo',
+                    author: 'hizzgdev@163.com',
+                    version: '0.2',
+                },
+                format: 'node_array',
+                data: [
+                    { id: 'root', isroot: true, topic: '0sub' },
+                    {
+                        'id': 'sub1',
+                        'parentid': 'root',
+                        'topic': '1sub',
+                        'background-color': '#0000ff',
                     },
-                    format: 'node_array',
-                    data: [
-                        { id: 'root', isroot: true, topic: 'jsMind' },
+                    { id: 'sub11', parentid: 'sub1', topic: '2sub' },
+                    { id: 'sub12', parentid: 'sub1', topic: '3sub' },
+                    { id: 'sub13', parentid: 'sub1', topic: '4sub' },
 
-                        {
-                            'id': 'sub1',
-                            'parentid': 'root',
-                            'topic': 'sub1',
-                            'background-color': '#0000ff',
-                        },
-                        { id: 'sub11', parentid: 'sub1', topic: 'sub11' },
-                        { id: 'sub12', parentid: 'sub1', topic: 'sub12' },
-                        { id: 'sub13', parentid: 'sub1', topic: 'sub13' },
-
-                        { id: 'sub2', parentid: 'root', topic: 'sub2' },
-                        { id: 'sub21', parentid: 'sub2', topic: 'sub21' },
-                        {
-                            'id': 'sub22',
-                            'parentid': 'sub2',
-                            'topic': 'sub22',
-                            'foreground-color': '#33ff33',
-                        },
-
-                        { id: 'sub3', parentid: 'root', topic: 'sub3' },
-                    ],
-                };
-                var options = {
-                    container: 'jsmind_container',
-                    editable: true,
-                    theme: 'primary',
-                };
-                var jm = jsMind.show(options, mind);
-                // jm.set_readonly(true);
-                // var mind_data = jm.get_data();
-                // alert(mind_data);
-                jm.add_node('sub2', 'sub23', 'new node', { 'background-color': 'red' });
-                jm.set_node_color('sub21', 'green', '#ccc');
-            }
+                    { id: 'sub2', parentid: 'root', topic: '5sub' },
+                    { id: 'sub21', parentid: 'sub2', topic: '6sub' },
+                    {
+                        'id': 'sub22',
+                        'parentid': 'sub2',
+                        'topic': '7sub',
+                        'foreground-color': '#33ff33',
+                    },
+                    { id: 'sub3', parentid: 'root', topic: '8sub' },
+                ],
+            };
+            var options = {
+                container: 'jsmind_container',
+                editable: true,
+                theme: 'primary',
+            };
+            var jm = jsMind.show(options, mind);
+            // jm.set_readonly(true);
+            // var mind_data = jm.get_data();
+            // alert(mind_data);
+            jm.add_node('sub2', 'sub23', 'new node', { 'background-color': 'red' });
+            jm.set_node_color('sub21', 'green', '#ccc');
+        }
 
             load_jsmind();
-        </script>
+</script>
+<script>
+    var oWrap = document.querySelector('#jsmind_container');
+    var oMask = document.querySelector('.mask');
+
+    var idx;
+    var arr = [['aa', 'bb', 'ccd'], [], [], [], [], [], [], [], [], []];
+    arr[3] = ['aaa', 'bbb', 'ccc']
+
+
+    oWrap.addEventListener('mouseover', function (e) {
+        if (e.target.tagName === 'JMNODE') {
+            console.dir(Number.parseInt(e.target.innerText));
+            idx = Number.parseInt(e.target.innerText);
+            oMask.style.display = 'block';
+            oMask.style.top = e.clientY + 'px';
+            oMask.style.left = e.clientX + 'px';
+            showItems(arr[idx]);
+        }
+    }, false);
+
+    function showItems(a) {
+        clearMask(arr[idx]);
+        oClose = document.createElement('li');
+        oClose.className = 'icon-font close';
+        oClose.innerHTML = '&#xf012a;';
+        oClose.addEventListener('click', close, false);
+        oMask.appendChild(oClose);
+        for (var i = 0; i < a.length; i++) {
+            createInput(a[i]);
+        }
+        createAdd();
+    }
+
+    function close() {
+        oMask.style.display = 'none';
+    }
+
+    function clearMask(a) {
+        var childs = oMask.childNodes;
+        for (var i = childs.length - 1; i >= 0; i--) {
+            oMask.removeChild(childs[i]);
+        }
+    }
+
+    function add() {
+        var list = oMask.childNodes;
+        var oAdd = list[list.length - 1];
+        var name = oAdd.childNodes[0].value;
+        oAdd.childNodes[0].value = '';
+        oAdd.childNodes[0].placeholder = '请输入内容';
+        oMask.removeChild(oAdd);
+        // 存入数据
+        arr[idx].push(name);
+        // 创建一个新的键值对
+        createInput(name);
+        oMask.appendChild(oAdd);
+    }
+
+    function del() {
+        var delItem = this.parentElement;
+        console.log(delItem);
+        var i = getElementIdx(delItem);
+        console.log(i);
+        oMask.removeChild(delItem);
+        arr[idx].splice(i, 1);
+    }
+
+    function getElementIdx(item) {
+        var list = item.parentElement.childNodes;
+        for (var i = 0; i < list.length; i++) {
+            if (item === list[i]) {
+                return i - 1;
+            }
+        }
+        return -1;
+    }
+
+    // 创建一个新的键值对并添加至owrap中
+    function createInput(name) {
+        var item = document.createElement('li');
+        var oSpan = document.createElement('span');
+        var oDel = document.createElement('span');
+        oSpan.innerText = name + ' ';
+        oDel.className = 'icon-font';
+        oDel.innerHTML = '&#xf012a;';
+        oDel.addEventListener('click', del, false);
+        var oInput = document.createElement('input');
+        item.appendChild(oSpan);
+        item.appendChild(oInput);
+        item.appendChild(oDel);
+        oMask.appendChild(item);
+    }
+
+    function createAdd() {
+        var oAdd = document.createElement('li');
+        var oInput = document.createElement('input');
+        var oItem = document.createElement('span');
+        oInput.placeholder = '请输入内容';
+        oItem.innerText = '+';
+        oItem.className = 'add';
+        oItem.addEventListener('click', add, false);
+        oAdd.appendChild(oInput);
+        oAdd.appendChild(oItem);
+        oMask.appendChild(oAdd);
+    }
+
+</script>
     </body>
+
 </html>
